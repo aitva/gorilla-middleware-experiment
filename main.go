@@ -22,6 +22,10 @@ func main() {
 		r.HandleFunc("/count/", func(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte(fmt.Sprintln(p)))
 		}).Methods("GET")
+		// Uncomment the following line to enable CORS.
+		// r.HandleFunc("/count/", func(w http.ResponseWriter, r *http.Request) {
+		// 	w.WriteHeader(http.StatusMethodNotAllowed)
+		// })
 	}
 
 	r.Use(func(h http.Handler) http.Handler {
